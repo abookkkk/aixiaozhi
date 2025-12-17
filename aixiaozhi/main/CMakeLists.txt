@@ -1,0 +1,10 @@
+idf_component_register(
+    SRCS 
+    "main.c"
+    "adc_button/adc_button.c"
+    "connect/xiaozhi_wifi.c"
+    INCLUDE_DIRS 
+    "."
+    "adc_button"
+    "connect"
+)
