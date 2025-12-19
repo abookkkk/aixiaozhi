@@ -551,6 +551,7 @@ D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/esp_wifi/
 D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/esp_wifi/CMakeFiles/install.dir
 D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/esp_wifi/CMakeFiles/install/local.dir
 D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/esp_wifi/CMakeFiles/install/strip.dir
+D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/bt/CMakeFiles/__idf_bt.dir
 D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/bt/CMakeFiles/edit_cache.dir
 D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/bt/CMakeFiles/rebuild_cache.dir
 D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/bt/CMakeFiles/list_install_components.dir
@@ -835,6 +836,13 @@ D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/espressif
 D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/espressif__button/CMakeFiles/install.dir
 D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/espressif__button/CMakeFiles/install/local.dir
 D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/espressif__button/CMakeFiles/install/strip.dir
+D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/espressif__qrcode/CMakeFiles/__idf_espressif__qrcode.dir
+D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/espressif__qrcode/CMakeFiles/edit_cache.dir
+D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/espressif__qrcode/CMakeFiles/rebuild_cache.dir
+D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/espressif__qrcode/CMakeFiles/list_install_components.dir
+D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/espressif__qrcode/CMakeFiles/install.dir
+D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/espressif__qrcode/CMakeFiles/install/local.dir
+D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/espressif__qrcode/CMakeFiles/install/strip.dir
 D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/main/CMakeFiles/__idf_main.dir
 D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/main/CMakeFiles/edit_cache.dir
 D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/main/CMakeFiles/rebuild_cache.dir
@@ -842,3 +850,10 @@ D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/main/CMak
 D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/main/CMakeFiles/install.dir
 D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/main/CMakeFiles/install/local.dir
 D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/main/CMakeFiles/install/strip.dir
+D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/test01/CMakeFiles/__idf_test01.dir
+D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/test01/CMakeFiles/edit_cache.dir
+D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/test01/CMakeFiles/rebuild_cache.dir
+D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/test01/CMakeFiles/list_install_components.dir
+D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/test01/CMakeFiles/install.dir
+D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/test01/CMakeFiles/install/local.dir
+D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/test01/CMakeFiles/install/strip.dir

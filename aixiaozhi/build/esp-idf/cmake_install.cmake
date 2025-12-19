@@ -554,6 +554,16 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
+  include("D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/espressif__qrcode/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
   include("D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/main/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
+  include("D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/test01/cmake_install.cmake")
 endif()
 
