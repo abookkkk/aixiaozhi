@@ -1,7 +1,7 @@
 {
     "version":            "1.1",
     "project_name":       "lcd_tjpgd",
-    "project_version":    "a02a820-dirty",
+    "project_version":    "3b73f46-dirty",
     "project_path":       "D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/demo/tjpgd",
     "idf_path":           "D:/Embed/Espressif/frameworks/esp-idf-v5.3.1",
     "build_dir":          "D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/demo/tjpgd/build",
@@ -1195,7 +1195,7 @@
             "managed_reqs": [],
             "managed_priv_reqs": [ "espressif__esp_jpeg" ],
             "file": "D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/demo/tjpgd/build/esp-idf/main/libmain.a",
-            "sources": [ "D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/demo/tjpgd/main/pretty_effect.c", "D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/demo/tjpgd/main/lcd_tjpgd_example_main.c", "D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/demo/tjpgd/main/decode_image.c", "D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/demo/tjpgd/build/image.jpg.S" ],
+            "sources": [ "D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/demo/tjpgd/main/pretty_effect.c", "D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/demo/tjpgd/main/lcd_tjpgd_example_main.c", "D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/demo/tjpgd/main/decode_image.c", "D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/demo/tjpgd/build/image.jpg.S", "D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/demo/tjpgd/build/mfk.jpg.S" ],
             "include_dirs": [ "." ]
         },
         "mbedtls": {

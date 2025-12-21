@@ -13,8 +13,8 @@ static int s_retry_num = 0;
 #define PROV_TRANSPORT_BLE "ble"
 #define QRCODE_BASE_URL "https://espressif.github.io/esp-jumpstart/qrcode.html"
 
-const int WIFI_CONNECTED_EVENT = BIT0;
-static EventGroupHandle_t wifi_event_group;
+// const int WIFI_CONNECTED_EVENT = BIT0;
+// static EventGroupHandle_t wifi_event_group;
 static int retries = 0;
 void wifi_app_main(void);
 void wifi_init_sta(void);
@@ -140,7 +140,7 @@ void wifi_app_main(void)
         wifi_prov_scheme_ble_set_service_uuid(custom_service_uuid);
         /* 开始提供服务 */
         ESP_ERROR_CHECK(wifi_prov_mgr_start_provisioning(security, (const void *)sec_params, service_name, service_key));
-        /* 打印二维码 */
+        /* 打印二维码 */ // TODO 调用生成二维码的函数
         wifi_prov_print_qr(service_name, username, pop, PROV_TRANSPORT_BLE);
 
         // 我们手动配置的
@@ -243,9 +243,10 @@ static void event_handler(void *arg, esp_event_base_t event_base,
         }
         case WIFI_PROV_CRED_SUCCESS:
             ESP_LOGI(TAG, "Provisioning successful");
-#ifdef CONFIG_EXAMPLE_RESET_PROV_MGR_ON_FAILURE
+            // ! 配网成功 ，主动删除二维码
+            xiaozhi_lvgl_del_qrcode();
             retries = 0;
-#endif
+
             break;
         case WIFI_PROV_END:
             /* De-initialize manager once provisioning is finished */
@@ -325,12 +326,13 @@ static void get_device_service_name(char *service_name, size_t max)
 
 static void wifi_prov_print_qr(const char *name, const char *username, const char *pop, const char *transport)
 {
+    char payload[150] = {0}; // 存放二维码数据
     if (!name || !transport)
     {
         ESP_LOGW(TAG, "Cannot generate QR code payload. Data missing.");
         return;
     }
-    char payload[150] = {0};
+
     if (pop)
     {
         snprintf(payload, sizeof(payload), "{\"ver\":\"%s\",\"name\":\"%s\""
@@ -343,18 +345,22 @@ static void wifi_prov_print_qr(const char *name, const char *username, const cha
                                            ",\"transport\":\"%s\"}",
                  PROV_QR_VERSION, name, transport);
     }
+
     ESP_LOGI(TAG, "Scan this QR code from the provisioning application for Provisioning.");
+
+    xiaozhi_lvgl_qrcode_show(payload);
     esp_qrcode_config_t cfg = ESP_QRCODE_CONFIG_DEFAULT();
+    // TODO 先不让他打印到控制台
     esp_qrcode_generate(&cfg, payload);
     ESP_LOGI(TAG, "If QR code is not visible, copy paste the below URL in a browser.\n%s?data=%s", QRCODE_BASE_URL, payload);
 }
 
 void xiaozhi_wifi_restart(void)
 {
-  // 清除wifi配置信息
-  esp_wifi_restore();
-  // nvs_flash_erase()
+    // 清除wifi配置信息
+    esp_wifi_restore();
+    // nvs_flash_erase()
 
-  // 重启芯片
-  esp_restart();
+    // 重启芯片
+    esp_restart();
 }

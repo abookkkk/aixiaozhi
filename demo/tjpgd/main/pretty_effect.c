@@ -29,7 +29,7 @@ static int8_t xcomp[320], ycomp[240];
 //Calculate the pixel data for a set of lines (with implied line size of 320). Pixels go in dest, line is the Y-coordinate of the
 //first line to be calculated, linect is the amount of lines to calculate. Frame increases by one every time the entire image
 //is displayed; this is used to go to the next frame of animation.
-void pretty_effect_calc_lines(uint16_t *dest, int line, int frame, int linect)
+void pretty_effect_calc_lines1(uint16_t *dest, int line, int frame, int linect)
 {
     if (frame != prev_frame) {
         //We need to calculate a new set of offset coefficients. Take some random sines as offsets to make everything
@@ -54,6 +54,22 @@ void pretty_effect_calc_lines(uint16_t *dest, int line, int frame, int linect)
         }
     }
 }
+
+void pretty_effect_calc_lines(uint16_t *dest, int line, int frame, int linect)
+{
+    // 直接复制原始图像，不做任何变换
+    for (int y = line; y < line + linect; y++) {
+        for (int x = 0; x < 320; x++) {
+            // 检查边界，防止访问越界
+            if (x < IMAGE_W && y < IMAGE_H) {
+                *dest++ = get_bgnd_pixel(x, y);
+            } else {
+                *dest++ = 0; // 越界区域填充黑色
+            }
+        }
+    }
+}
+
 
 esp_err_t pretty_effect_init(void)
 {

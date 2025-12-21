@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include "adc_button.h"
 #include "xiaozhi_wifi.h"
+#include "LCD\xiaozhi_lcd.h"
+#include "LCD\xiaozhi_lvgl.h"
 
 void adc_button_cb(void *button_handle, void *usr_data);
 #define TAG "main_button"
@@ -14,9 +16,15 @@ typedef enum
 void app_main(void)
 {
     adc_button_init();
+    //lcd_app_main();
     adc_button_register_sw2_cb(BUTTON_SINGLE_CLICK, adc_button_cb, (void *)SW2_SINGLE_CLICK);
     adc_button_register_sw3_cb(BUTTON_SINGLE_CLICK, adc_button_cb, (void *)SW3_SINGLE_CLICK);
     adc_button_register_sw3_cb(BUTTON_LONG_PRESS_START, adc_button_cb, (void *)SW3_LONG_PRESS_START);
+    xiaozhi_lvgl_init();
+    
+    //xiaozhi_lvgl_helloworld();
+    //xiaozhi_lcd_init();
+    //xiaozhi_lcd_test();
     xiaozhi_wifi_init();
 }
 

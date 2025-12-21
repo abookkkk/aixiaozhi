@@ -23,26 +23,26 @@ void adc_button_init(void)
         .unit_id = ADC_UNIT_1,
         .adc_channel = 7,
         .button_index = 1,
-        .min = 1300,
+        .min = 1200,
         .max = 1800, // 500mv
     };
 
     if (NULL == sw2_adc_btn)
     {
-        ESP_LOGE(TAG, "Button create failed"); // ERROR
-        ESP_LOGW(TAG, "Button create failed"); // waring
-        ESP_LOGI(TAG, "Button create failed"); // info
-        ESP_LOGD(TAG, "Button create failed"); // debug
+        ESP_LOGE(TAG, "Button2 create failed"); // ERROR
+        // ESP_LOGW(TAG, "Button create failed"); // waring
+        // ESP_LOGI(TAG, "Button create failed"); // info
+        // ESP_LOGD(TAG, "Button create failed"); // debug
     }
     //
     iot_button_new_adc_device(&sw2_btn_cfg, &sw2_btn_adc_cfg, &sw2_adc_btn);
 
     if (NULL == sw3_adc_btn)
     {
-        ESP_LOGE(TAG, "Button create failed"); // ERROR
-        ESP_LOGW(TAG, "Button create failed"); // waring
-        ESP_LOGI(TAG, "Button create failed"); // info
-        ESP_LOGD(TAG, "Button create failed"); // debug
+        ESP_LOGE(TAG, "Button3 create failed"); // ERROR
+        // ESP_LOGW(TAG, "Button3 create failed"); // waring
+        // ESP_LOGI(TAG, "Button3 create failed"); // info
+        // ESP_LOGD(TAG, "Button3 create failed"); // debug
     }
     //
     iot_button_new_adc_device(&sw3_btn_cfg, &sw3_btn_adc_cfg, &sw3_adc_btn);

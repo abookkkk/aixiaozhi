@@ -21,6 +21,7 @@
 #include "lwip/err.h"
 #include "lwip/sys.h"
 
+#include "xiaozhi_lvgl.h"
 void xiaozhi_wifi_init(void);
 
 void xiaozhi_wifi_restart(void);

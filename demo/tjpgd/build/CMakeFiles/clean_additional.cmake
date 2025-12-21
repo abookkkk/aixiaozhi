@@ -19,6 +19,7 @@ if("${CONFIG}" STREQUAL "" OR "${CONFIG}" STREQUAL "")
   "lcd_tjpgd.map"
   "ldgen_libraries"
   "ldgen_libraries.in"
+  "mfk.jpg.S"
   "project_elf_src_esp32s3.c"
   "x509_crt_bundle.S"
   )

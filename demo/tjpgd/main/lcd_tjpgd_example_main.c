@@ -23,7 +23,7 @@
 // is dividable by this.
 #define PARALLEL_LINES CONFIG_EXAMPLE_LCD_FLUSH_PARALLEL_LINES
 // The number of frames to show before rotate the graph
-#define ROTATE_FRAME   30
+#define ROTATE_FRAME   0
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////// Please update the following configuration according to your LCD spec //////////////////////////////
@@ -71,7 +71,7 @@ static void display_pretty_colors(esp_lcd_panel_handle_t panel_handle)
         frame++;
         for (int y = 0; y < EXAMPLE_LCD_V_RES; y += PARALLEL_LINES) {
             // Calculate a line
-            pretty_effect_calc_lines(s_lines[calc_line], y, frame, PARALLEL_LINES);
+            pretty_effect_calc_lines(s_lines[calc_line], y, 0, PARALLEL_LINES);
             sending_line = calc_line;
             calc_line = !calc_line;
             // Send the calculated data
@@ -97,16 +97,7 @@ void app_main(void)
         .quadhd_io_num = -1,
         .max_transfer_sz = PARALLEL_LINES * EXAMPLE_LCD_H_RES * 2 + 8
     };
-#if CONFIG_EXAMPLE_LCD_SPI_8_LINE_MODE
-    buscfg.data1_io_num = EXAMPLE_PIN_NUM_DATA1;
-    buscfg.data2_io_num = EXAMPLE_PIN_NUM_DATA2;
-    buscfg.data3_io_num = EXAMPLE_PIN_NUM_DATA3;
-    buscfg.data4_io_num = EXAMPLE_PIN_NUM_DATA4;
-    buscfg.data5_io_num = EXAMPLE_PIN_NUM_DATA5;
-    buscfg.data6_io_num = EXAMPLE_PIN_NUM_DATA6;
-    buscfg.data7_io_num = EXAMPLE_PIN_NUM_DATA7;
-    buscfg.flags = SPICOMMON_BUSFLAG_OCTAL;
-#endif
+
     // Initialize the SPI bus
     ESP_ERROR_CHECK(spi_bus_initialize(LCD_HOST, &buscfg, SPI_DMA_CH_AUTO));
 
@@ -120,10 +111,7 @@ void app_main(void)
         .spi_mode = 0,
         .trans_queue_depth = 10,
     };
-#if CONFIG_EXAMPLE_LCD_SPI_8_LINE_MODE
-    io_config.spi_mode = 3;  // using mode 3 to simulate Intel 8080 timing
-    io_config.flags.octal_mode = 1;
-#endif
+
     // Attach the LCD to the SPI bus
     ESP_ERROR_CHECK(esp_lcd_new_panel_io_spi((esp_lcd_spi_bus_handle_t)LCD_HOST, &io_config, &io_handle));
 
@@ -148,10 +136,10 @@ void app_main(void)
 
     // Turn on the screen
     ESP_ERROR_CHECK(esp_lcd_panel_disp_on_off(panel_handle, true));
-    ESP_ERROR_CHECK(esp_lcd_panel_invert_color(panel_handle, true));
+    ESP_ERROR_CHECK(esp_lcd_panel_invert_color(panel_handle, false));//TODO 颜色反转
 
     // Swap x and y axis (Different LCD screens may need different options)
-    ESP_ERROR_CHECK(esp_lcd_panel_swap_xy(panel_handle, true));
+    ESP_ERROR_CHECK(esp_lcd_panel_swap_xy(panel_handle, true));//TODO xy反转
 
     // Turn on backlight (Different LCD screens may need different levels)
     ESP_ERROR_CHECK(gpio_set_level(EXAMPLE_PIN_NUM_BK_LIGHT, EXAMPLE_LCD_BK_LIGHT_ON_LEVEL));
@@ -160,7 +148,7 @@ void app_main(void)
     ESP_ERROR_CHECK(pretty_effect_init());
 
     // "Rotate or not" flag
-    bool is_rotated = false;
+    bool is_rotated = true;//TODO 镜像
 
     // Allocate memory for the pixel buffers
     for (int i = 0; i < 2; i++) {
@@ -171,9 +159,9 @@ void app_main(void)
     // Start and rotate
     while (1) {
         // Set driver configuration to rotate 180 degrees each time
-        ESP_ERROR_CHECK(esp_lcd_panel_mirror(panel_handle, is_rotated, is_rotated));
+        ESP_ERROR_CHECK(esp_lcd_panel_mirror(panel_handle, is_rotated, !is_rotated));//TODO 沿x或者y轴镜像
         // Display
         display_pretty_colors(panel_handle);
-        is_rotated = !is_rotated;
+        //is_rotated = !is_rotated;
     }
 }
