@@ -1,0 +1,9 @@
+CMake Error at D:/Embed/Espressif/frameworks/esp-idf-v5.3.1/tools/cmake/build.cmake:552 (message):
+  ERROR: C:\Users\14146\AppData\Local\Temp\tmpjdj5lspl\component.zip is not a
+  zip file
+
+Call Stack (most recent call first):
+  D:/Embed/Espressif/frameworks/esp-idf-v5.3.1/tools/cmake/project.cmake:710 (idf_build_process)
+  CMakeLists.txt:8 (project)
+
+

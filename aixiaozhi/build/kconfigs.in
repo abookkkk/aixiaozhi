@@ -73,6 +73,8 @@ source "D:/Embed/Espressif/frameworks/esp-idf-v5.3.1/components/wear_levelling/K
 source "D:/Embed/Espressif/frameworks/esp-idf-v5.3.1/components/wifi_provisioning/Kconfig"
 source "D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/managed_components/espressif__button/Kconfig"
 source "D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/managed_components/espressif__cmake_utilities/Kconfig"
+source "D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/managed_components/espressif__esp-dsp/Kconfig"
+source "D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/managed_components/espressif__esp_codec_dev/Kconfig"
 source "D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/managed_components/espressif__esp_jpeg/Kconfig"
 source "D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/managed_components/espressif__esp_lvgl_port/Kconfig"
 source "D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/managed_components/lvgl__lvgl/Kconfig"

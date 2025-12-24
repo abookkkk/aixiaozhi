@@ -3,13 +3,17 @@ idf_component_register(
     "main.c"
     "adc_button/adc_button.c"
     "connect/xiaozhi_wifi.c"
+    "connect/xiaozhi_active.c"
     "LCD/xiaozhi_lcd.c"
     "LCD/xiaozhi_lvgl.c"
+    "audio/xiaozhi_audio.c"
+
     INCLUDE_DIRS 
     "."
     "adc_button"
     "connect"
     "LCD"
+    "audio"
     EMBED_FILES image.jpg
 
 

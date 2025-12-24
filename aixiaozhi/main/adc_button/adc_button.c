@@ -23,7 +23,7 @@ void adc_button_init(void)
         .unit_id = ADC_UNIT_1,
         .adc_channel = 7,
         .button_index = 1,
-        .min = 1200,
+        .min = 1300,
         .max = 1800, // 500mv
     };
 

@@ -7,8 +7,8 @@ static int s_retry_num = 0;
 
 #define WIFI_CONNECTED_BIT BIT0
 #define WIFI_FAIL_BIT BIT1
-#define EXAMPLE_ESP_WIFI_SSID "Mate 70 Pro"
-#define EXAMPLE_ESP_WIFI_PASS "12345678"
+// #define EXAMPLE_ESP_WIFI_SSID "Mate 70 Pro"
+// #define EXAMPLE_ESP_WIFI_PASS "12345678"
 #define PROV_QR_VERSION "v1"
 #define PROV_TRANSPORT_BLE "ble"
 #define QRCODE_BASE_URL "https://espressif.github.io/esp-jumpstart/qrcode.html"
@@ -142,44 +142,6 @@ void wifi_app_main(void)
         ESP_ERROR_CHECK(wifi_prov_mgr_start_provisioning(security, (const void *)sec_params, service_name, service_key));
         /* 打印二维码 */ // TODO 调用生成二维码的函数
         wifi_prov_print_qr(service_name, username, pop, PROV_TRANSPORT_BLE);
-
-        // 我们手动配置的
-        // wifi_config_t wifi_config = {
-        //     .sta = {
-        //         .ssid = EXAMPLE_ESP_WIFI_SSID,
-        //         .password = EXAMPLE_ESP_WIFI_PASS,
-
-        //         .threshold.authmode = WIFI_AUTH_WPA2_PSK, // ESP32 在扫描 Wi-Fi 网络时，
-        //                                                   // 只会考虑那些认证模式不低于此阈值的网络;WPA2_PSK :8-63 字符
-
-        //         .sae_pwe_h2e = WPA3_SAE_PWE_BOTH,
-        //         .sae_h2e_identifier = "",
-        //     },
-        // };
-        // ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
-        // ESP_ERROR_CHECK(esp_wifi_set_config(WIFI_IF_STA, &wifi_config));
-        ESP_ERROR_CHECK(esp_wifi_start());
-
-        ESP_LOGI(TAG, "wifi_init_sta finished.");
-        EventBits_t bits = xEventGroupWaitBits(s_wifi_event_group,
-                                               WIFI_CONNECTED_BIT | WIFI_FAIL_BIT,
-                                               pdFALSE,
-                                               pdFALSE,
-                                               portMAX_DELAY);
-        if (bits & WIFI_CONNECTED_BIT)
-        {
-            ESP_LOGI(TAG, "connected to ap SSID:%s password:%s",
-                     EXAMPLE_ESP_WIFI_SSID, EXAMPLE_ESP_WIFI_PASS);
-        }
-        else if (bits & WIFI_FAIL_BIT)
-        {
-            ESP_LOGI(TAG, "Failed to connect to SSID:%s, password:%s",
-                     EXAMPLE_ESP_WIFI_SSID, EXAMPLE_ESP_WIFI_PASS);
-        }
-        else
-        {
-            ESP_LOGE(TAG, "UNEXPECTED EVENT");
-        }
     }
     else
     {
@@ -190,6 +152,29 @@ void wifi_app_main(void)
         /* Start Wi-Fi station */
         wifi_init_sta();
     }
+    // 我们手动配置的
+    // wifi_config_t wifi_config = {
+    //     .sta = {
+    //         .ssid = EXAMPLE_ESP_WIFI_SSID,
+    //         .password = EXAMPLE_ESP_WIFI_PASS,
+
+    //         .threshold.authmode = WIFI_AUTH_WPA2_PSK, // ESP32 在扫描 Wi-Fi 网络时，
+    //                                                   // 只会考虑那些认证模式不低于此阈值的网络;WPA2_PSK :8-63 字符
+
+    //         .sae_pwe_h2e = WPA3_SAE_PWE_BOTH,
+    //         .sae_h2e_identifier = "",
+    //     },
+    // };
+    // ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
+    // ESP_ERROR_CHECK(esp_wifi_set_config(WIFI_IF_STA, &wifi_config));
+    ESP_ERROR_CHECK(esp_wifi_start());
+
+    ESP_LOGI(TAG, "wifi_init_sta finished.");
+    EventBits_t bits = xEventGroupWaitBits(s_wifi_event_group,
+                                           WIFI_CONNECTED_BIT,
+                                           pdTRUE,
+                                           pdFALSE,
+                                           portMAX_DELAY);
     // xEventGroupWaitBits(wifi_event_group, WIFI_CONNECTED_EVENT, true, true, portMAX_DELAY);
 }
 
@@ -348,10 +333,11 @@ static void wifi_prov_print_qr(const char *name, const char *username, const cha
 
     ESP_LOGI(TAG, "Scan this QR code from the provisioning application for Provisioning.");
 
+    xiaozhi_lvgl_title_label_update("请使用小智App扫码配网");
     xiaozhi_lvgl_qrcode_show(payload);
     esp_qrcode_config_t cfg = ESP_QRCODE_CONFIG_DEFAULT();
     // TODO 先不让他打印到控制台
-    esp_qrcode_generate(&cfg, payload);
+    //esp_qrcode_generate(&cfg, payload);
     ESP_LOGI(TAG, "If QR code is not visible, copy paste the below URL in a browser.\n%s?data=%s", QRCODE_BASE_URL, payload);
 }
 

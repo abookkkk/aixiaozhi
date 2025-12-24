@@ -1,0 +1,13 @@
+-- ccache will be used for faster recompilation
+-- Building ESP-IDF components for target esp32s3
+NOTICE: Manifest files have changed, solving dependencies.
+...................NOTICE: Updating lock file at D:\Code\ESP32_Projects\Studay_Projects\xiaozhi\aixiaozhi\dependencies.lock
+NOTICE: Processing 12 dependencies:
+NOTICE: [1/12] 78/xiaozhi-fonts (1.5.5)
+NOTICE: [2/12] espressif/button (4.1.5)
+NOTICE: [3/12] espressif/cmake_utilities (1.1.1)
+NOTICE: [4/12] espressif/dl_fft (0.3.1)
+NOTICE: [5/12] espressif/esp-dsp (1.7.0)
+NOTICE: [6/12] espressif/esp-sr (2.3.0)
+-- Configuring incomplete, errors occurred!
+See also "D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/CMakeFiles/CMakeOutput.log".
