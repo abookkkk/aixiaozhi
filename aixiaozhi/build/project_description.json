@@ -1,7 +1,7 @@
 {
     "version":            "1.1",
     "project_name":       "aixiaozhi",
-    "project_version":    "3540f72-dirty",
+    "project_version":    "66e82f2-dirty",
     "project_path":       "D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi",
     "idf_path":           "D:/Embed/Espressif/frameworks/esp-idf-v5.3.1",
     "build_dir":          "D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build",
@@ -1345,7 +1345,7 @@
             "managed_reqs": [],
             "managed_priv_reqs": [ "78__xiaozhi-fonts", "espressif__button", "espressif__esp-sr", "espressif__esp_codec_dev", "espressif__esp_jpeg", "espressif__esp_lvgl_port", "espressif__qrcode", "lvgl__lvgl" ],
             "file": "D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/main/libmain.a",
-            "sources": [ "D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/main/main.c", "D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/main/adc_button/adc_button.c", "D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/main/connect/xiaozhi_wifi.c", "D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/main/connect/xiaozhi_active.c", "D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/main/LCD/xiaozhi_lcd.c", "D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/main/LCD/xiaozhi_lvgl.c", "D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/main/audio/xiaozhi_audio.c", "D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/image.jpg.S" ],
+            "sources": [ "D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/main/main.c", "D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/main/adc_button/adc_button.c", "D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/main/connect/xiaozhi_wifi.c", "D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/main/connect/xiaozhi_active.c", "D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/main/LCD/xiaozhi_lcd.c", "D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/main/LCD/xiaozhi_lvgl.c", "D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/main/audio/xiaozhi_audio.c", "D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/main/audio/xiaozhi_sr.c", "D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/image.jpg.S" ],
             "include_dirs": [ ".", "adc_button", "connect", "LCD", "audio" ]
         },
         "mbedtls": {

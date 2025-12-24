@@ -7,6 +7,7 @@ idf_component_register(
     "LCD/xiaozhi_lcd.c"
     "LCD/xiaozhi_lvgl.c"
     "audio/xiaozhi_audio.c"
+    "audio/xiaozhi_sr.c"
 
     INCLUDE_DIRS 
     "."

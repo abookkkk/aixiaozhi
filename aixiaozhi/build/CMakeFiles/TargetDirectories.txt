@@ -865,6 +865,7 @@ D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/espressif
 D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/espressif__esp-dsp/CMakeFiles/install/local.dir
 D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/espressif__esp-dsp/CMakeFiles/install/strip.dir
 D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/espressif__esp-sr/CMakeFiles/__idf_espressif__esp-sr.dir
+D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/espressif__esp-sr/CMakeFiles/srmodels_bin.dir
 D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/espressif__esp-sr/CMakeFiles/edit_cache.dir
 D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/espressif__esp-sr/CMakeFiles/rebuild_cache.dir
 D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/espressif__esp-sr/CMakeFiles/list_install_components.dir

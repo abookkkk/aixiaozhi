@@ -5,6 +5,7 @@
 #include "LCD\xiaozhi_lcd.h"
 #include "LCD\xiaozhi_lvgl.h"
 #include "audio\xiaozhi_audio.h"
+#include "audio\xiaozhi_sr.h"
 void adc_button_cb(void *button_handle, void *usr_data);
 #define TAG "main_button"
 /* 定义小智的结构体对象 */
@@ -33,14 +34,15 @@ void app_main(void)
     //xiaozhi_active_request();
 
     // xiaozhi_lvgl_helloworld();
+    xiaozhi_sr_init();
     //!测试录音
-    xiaozhi_audio_init();
-    uint8_t data[1024];
-    while (1)
-    {
-        xiaozhi_audio_record(data, 1024);
-        xiaozhi_audio_play(data, 1024);
-    }
+    // xiaozhi_audio_init();
+    // uint8_t data[1024];
+    // while (1)
+    // {
+    //     xiaozhi_audio_record(data, 1024);
+    //     xiaozhi_audio_play(data, 1024);
+    // }
     
 }
 
