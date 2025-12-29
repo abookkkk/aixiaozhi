@@ -34679,6 +34679,298 @@
             {
                 "children": [
                     {
+                        "children": [
+                            {
+                                "children": [],
+                                "depends_on": null,
+                                "help": "Enable this option to register AAC decoder",
+                                "id": "AUDIO_DECODER_AAC_SUPPORT",
+                                "name": "AUDIO_DECODER_AAC_SUPPORT",
+                                "range": null,
+                                "title": "Support AAC Decoder",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": null,
+                                "help": "Enable this option to register MP3 decoder",
+                                "id": "AUDIO_DECODER_MP3_SUPPORT",
+                                "name": "AUDIO_DECODER_MP3_SUPPORT",
+                                "range": null,
+                                "title": "Support MP3 Decoder",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": null,
+                                "help": "Enable this option to register G711 A-Law and U-Law decoder",
+                                "id": "AUDIO_DECODER_G711_SUPPORT",
+                                "name": "AUDIO_DECODER_G711_SUPPORT",
+                                "range": null,
+                                "title": "Support G711 Decoder",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": null,
+                                "help": "Enable this option to register AMR-NB decoder",
+                                "id": "AUDIO_DECODER_AMRNB_SUPPORT",
+                                "name": "AUDIO_DECODER_AMRNB_SUPPORT",
+                                "range": null,
+                                "title": "Support AMR-NB Decoder",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": null,
+                                "help": "Enable this option to register AMR-WB decoder",
+                                "id": "AUDIO_DECODER_AMRWB_SUPPORT",
+                                "name": "AUDIO_DECODER_AMRWB_SUPPORT",
+                                "range": null,
+                                "title": "Support AMR-WB Decoder",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": null,
+                                "help": "Enable this option to register FLAC decoder",
+                                "id": "AUDIO_DECODER_FLAC_SUPPORT",
+                                "name": "AUDIO_DECODER_FLAC_SUPPORT",
+                                "range": null,
+                                "title": "Support FLAC Decoder",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": null,
+                                "help": "Enable this option to register OPUS decoder",
+                                "id": "AUDIO_DECODER_OPUS_SUPPORT",
+                                "name": "AUDIO_DECODER_OPUS_SUPPORT",
+                                "range": null,
+                                "title": "Support OPUS Decoder",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": null,
+                                "help": "Enable this option to register VORBIS decoder",
+                                "id": "AUDIO_DECODER_VORBIS_SUPPORT",
+                                "name": "AUDIO_DECODER_VORBIS_SUPPORT",
+                                "range": null,
+                                "title": "Support VORBIS Decoder",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": null,
+                                "help": "Enable this option to register IMA-ADPCM decoder",
+                                "id": "AUDIO_DECODER_ADPCM_SUPPORT",
+                                "name": "AUDIO_DECODER_ADPCM_SUPPORT",
+                                "range": null,
+                                "title": "Support ADPCM Decoder",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": null,
+                                "help": "Enable this option to register ALAC decoder",
+                                "id": "AUDIO_DECODER_ALAC_SUPPORT",
+                                "name": "AUDIO_DECODER_ALAC_SUPPORT",
+                                "range": null,
+                                "title": "Support ALAC Decoder",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": null,
+                                "help": "Enable this option to register PCM decoder",
+                                "id": "AUDIO_DECODER_PCM_SUPPORT",
+                                "name": "AUDIO_DECODER_PCM_SUPPORT",
+                                "range": null,
+                                "title": "Support PCM Decoder",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": null,
+                                "help": "Enable this option to register SBC decoder",
+                                "id": "AUDIO_DECODER_SBC_SUPPORT",
+                                "name": "AUDIO_DECODER_SBC_SUPPORT",
+                                "range": null,
+                                "title": "Support SBC Decoder",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": null,
+                                "help": "Enable this option to register LC3 decoder",
+                                "id": "AUDIO_DECODER_LC3_SUPPORT",
+                                "name": "AUDIO_DECODER_LC3_SUPPORT",
+                                "range": null,
+                                "title": "Support LC3 Decoder",
+                                "type": "bool"
+                            }
+                        ],
+                        "depends_on": null,
+                        "id": "component-config-audio-codec-configuration-audio-decoder-configuration",
+                        "title": "Audio Decoder Configuration",
+                        "type": "menu"
+                    },
+                    {
+                        "children": [
+                            {
+                                "children": [],
+                                "depends_on": null,
+                                "help": "Support decode audio frame from WAV container",
+                                "id": "AUDIO_SIMPLE_DEC_WAV_SUPPORT",
+                                "name": "AUDIO_SIMPLE_DEC_WAV_SUPPORT",
+                                "range": null,
+                                "title": "Support WAV Container",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": null,
+                                "help": "Support decode audio frame from MP4 container",
+                                "id": "AUDIO_SIMPLE_DEC_M4A_SUPPORT",
+                                "name": "AUDIO_SIMPLE_DEC_M4A_SUPPORT",
+                                "range": null,
+                                "title": "Support MP4 Container",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": null,
+                                "help": "Support decode audio frame from TS container",
+                                "id": "AUDIO_SIMPLE_DEC_TS_SUPPORT",
+                                "name": "AUDIO_SIMPLE_DEC_TS_SUPPORT",
+                                "range": null,
+                                "title": "Support TS Container",
+                                "type": "bool"
+                            }
+                        ],
+                        "depends_on": null,
+                        "id": "component-config-audio-codec-configuration-audio-simple-decoder-configuration",
+                        "title": "Audio Simple Decoder Configuration",
+                        "type": "menu"
+                    },
+                    {
+                        "children": [
+                            {
+                                "children": [],
+                                "depends_on": null,
+                                "help": "Enable this option to register AAC Encoder",
+                                "id": "AUDIO_ENCODER_AAC_SUPPORT",
+                                "name": "AUDIO_ENCODER_AAC_SUPPORT",
+                                "range": null,
+                                "title": "Support AAC Encoder",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": null,
+                                "help": "Enable this option to register G711 A-Law and U-Law encoder",
+                                "id": "AUDIO_ENCODER_G711_SUPPORT",
+                                "name": "AUDIO_ENCODER_G711_SUPPORT",
+                                "range": null,
+                                "title": "Support G711 Encoder",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": null,
+                                "help": "Enable this option to register AMR-NB encoder",
+                                "id": "AUDIO_ENCODER_AMRNB_SUPPORT",
+                                "name": "AUDIO_ENCODER_AMRNB_SUPPORT",
+                                "range": null,
+                                "title": "Support AMR-NB Encoder",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": null,
+                                "help": "Enable this option to register AMR-WB encoder",
+                                "id": "AUDIO_ENCODER_AMRWB_SUPPORT",
+                                "name": "AUDIO_ENCODER_AMRWB_SUPPORT",
+                                "range": null,
+                                "title": "Support AMR-WB Encoder",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": null,
+                                "help": "Enable this option to register OPUS encoder",
+                                "id": "AUDIO_ENCODER_OPUS_SUPPORT",
+                                "name": "AUDIO_ENCODER_OPUS_SUPPORT",
+                                "range": null,
+                                "title": "Support OPUS Encoder",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": null,
+                                "help": "Enable this option to register IMA-ADPCM encoder",
+                                "id": "AUDIO_ENCODER_ADPCM_SUPPORT",
+                                "name": "AUDIO_ENCODER_ADPCM_SUPPORT",
+                                "range": null,
+                                "title": "Support ADPCM Encoder",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": null,
+                                "help": "Enable this option to register ALAC encoder",
+                                "id": "AUDIO_ENCODER_ALAC_SUPPORT",
+                                "name": "AUDIO_ENCODER_ALAC_SUPPORT",
+                                "range": null,
+                                "title": "Support ALAC Encoder",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": null,
+                                "help": "Enable this option to register PCM encoder",
+                                "id": "AUDIO_ENCODER_PCM_SUPPORT",
+                                "name": "AUDIO_ENCODER_PCM_SUPPORT",
+                                "range": null,
+                                "title": "Support PCM Encoder",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": null,
+                                "help": "Enable this option to register SBC encoder",
+                                "id": "AUDIO_ENCODER_SBC_SUPPORT",
+                                "name": "AUDIO_ENCODER_SBC_SUPPORT",
+                                "range": null,
+                                "title": "Support SBC Encoder",
+                                "type": "bool"
+                            },
+                            {
+                                "children": [],
+                                "depends_on": null,
+                                "help": "Enable this option to register LC3 encoder",
+                                "id": "AUDIO_ENCODER_LC3_SUPPORT",
+                                "name": "AUDIO_ENCODER_LC3_SUPPORT",
+                                "range": null,
+                                "title": "Support LC3 Encoder",
+                                "type": "bool"
+                            }
+                        ],
+                        "depends_on": null,
+                        "id": "component-config-audio-codec-configuration-audio-encoder-configuration",
+                        "title": "Audio Encoder Configuration",
+                        "type": "menu"
+                    }
+                ],
+                "depends_on": null,
+                "id": "component-config-audio-codec-configuration",
+                "title": "Audio Codec Configuration",
+                "type": "menu"
+            },
+            {
+                "children": [
+                    {
                         "children": [],
                         "depends_on": null,
                         "help": null,
@@ -34988,6 +35280,45 @@
                 "depends_on": null,
                 "id": "component-config-esp-lvgl-port",
                 "title": "ESP LVGL PORT",
+                "type": "menu"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "depends_on": null,
+                        "help": "Enable this option will reallocated buffer when send or receive data and free them when end of use.\nThis can save about 2 KB memory when no websocket data send and receive.",
+                        "id": "ESP_WS_CLIENT_ENABLE_DYNAMIC_BUFFER",
+                        "name": "ESP_WS_CLIENT_ENABLE_DYNAMIC_BUFFER",
+                        "range": null,
+                        "title": "Enable websocket client dynamic buffer for send and receive data",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [
+                            {
+                                "children": [],
+                                "depends_on": "ESP_WS_CLIENT_SEPARATE_TX_LOCK",
+                                "help": "Timeout for acquiring the TX lock when using separate TX lock.",
+                                "id": "ESP_WS_CLIENT_TX_LOCK_TIMEOUT_MS",
+                                "name": "ESP_WS_CLIENT_TX_LOCK_TIMEOUT_MS",
+                                "range": null,
+                                "title": "TX lock timeout in milliseconds",
+                                "type": "int"
+                            }
+                        ],
+                        "depends_on": null,
+                        "help": "Enable this option will use separate lock for send and receive data.\nThis can avoid the lock contention when send and receive data at the same time.",
+                        "id": "ESP_WS_CLIENT_SEPARATE_TX_LOCK",
+                        "name": "ESP_WS_CLIENT_SEPARATE_TX_LOCK",
+                        "range": null,
+                        "title": "Enable separate tx lock for send and receive data",
+                        "type": "bool"
+                    }
+                ],
+                "depends_on": null,
+                "id": "component-config-esp-websocket-client",
+                "title": "ESP WebSocket client",
                 "type": "menu"
             },
             {

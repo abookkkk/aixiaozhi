@@ -872,6 +872,13 @@ D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/espressif
 D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/espressif__esp-sr/CMakeFiles/install.dir
 D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/espressif__esp-sr/CMakeFiles/install/local.dir
 D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/espressif__esp-sr/CMakeFiles/install/strip.dir
+D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/espressif__esp_audio_codec/CMakeFiles/__idf_espressif__esp_audio_codec.dir
+D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/espressif__esp_audio_codec/CMakeFiles/edit_cache.dir
+D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/espressif__esp_audio_codec/CMakeFiles/rebuild_cache.dir
+D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/espressif__esp_audio_codec/CMakeFiles/list_install_components.dir
+D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/espressif__esp_audio_codec/CMakeFiles/install.dir
+D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/espressif__esp_audio_codec/CMakeFiles/install/local.dir
+D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/espressif__esp_audio_codec/CMakeFiles/install/strip.dir
 D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/espressif__esp_codec_dev/CMakeFiles/__idf_espressif__esp_codec_dev.dir
 D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/espressif__esp_codec_dev/CMakeFiles/edit_cache.dir
 D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/espressif__esp_codec_dev/CMakeFiles/rebuild_cache.dir
@@ -893,6 +900,13 @@ D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/espressif
 D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/espressif__esp_lvgl_port/CMakeFiles/install.dir
 D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/espressif__esp_lvgl_port/CMakeFiles/install/local.dir
 D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/espressif__esp_lvgl_port/CMakeFiles/install/strip.dir
+D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/espressif__esp_websocket_client/CMakeFiles/__idf_espressif__esp_websocket_client.dir
+D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/espressif__esp_websocket_client/CMakeFiles/edit_cache.dir
+D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/espressif__esp_websocket_client/CMakeFiles/rebuild_cache.dir
+D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/espressif__esp_websocket_client/CMakeFiles/list_install_components.dir
+D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/espressif__esp_websocket_client/CMakeFiles/install.dir
+D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/espressif__esp_websocket_client/CMakeFiles/install/local.dir
+D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/espressif__esp_websocket_client/CMakeFiles/install/strip.dir
 D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/espressif__qrcode/CMakeFiles/__idf_espressif__qrcode.dir
 D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/espressif__qrcode/CMakeFiles/edit_cache.dir
 D:/Code/ESP32_Projects/Studay_Projects/xiaozhi/aixiaozhi/build/esp-idf/espressif__qrcode/CMakeFiles/rebuild_cache.dir
