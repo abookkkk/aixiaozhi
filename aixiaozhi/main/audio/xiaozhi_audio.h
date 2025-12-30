@@ -15,3 +15,11 @@ void xiaozhi_audio_init(void);
 void xiaozhi_audio_play(void *buf, uint32_t size);
 
 void xiaozhi_audio_record(void *buf, uint32_t size);
+
+void xiaozhi_audio_open(void);
+
+void xiaozhi_audio_close(void);
+
+void xiaozhi_audio_set_volume(uint8_t volume);
+/* 设置是否静音 */
+void xiaozhi_audio_mute_set(bool mute);

@@ -1,5 +1,5 @@
 #include "xiaozhi_active.h"
-
+//!https请求
 esp_err_t _http_event_handler(esp_http_client_event_t *evt);
 void xiaozhi_active_setHeader(void);
 void xiaozhi_active_setBody(void);
@@ -41,7 +41,14 @@ void xiaozhi_active_request(void)
     // 设置请求体
     xiaozhi_active_setBody();
     // 发请求
-    esp_err_t err = esp_http_client_perform(client);
+    while (esp_http_client_perform(client) != ESP_OK)
+    {
+        xiaozhi_lvgl_title_label_update("请求网络中...");
+        xiaozhi_lvgl_emoji_label_update("embarrassed");
+        xiaozhi_lvgl_center_text_update("请稍等...");
+    }
+
+    // esp_err_t err = esp_http_client_perform(client);
 }
 
 void xiaozhi_active_setHeader(void)
@@ -241,9 +248,9 @@ void xiaozhi_active_parse_response(char *response)
     {
         xiaozhi_handle.is_actived = true;
         ESP_LOGW(TAG, "设备已经激活");
-        xiaozhi_lvgl_title_label_update("小智");
+        xiaozhi_lvgl_title_label_update(AI_NAME);
         xiaozhi_lvgl_emoji_label_update("loving");
-        xiaozhi_lvgl_center_text_update("李崇昊,你来了,红红火火恍恍惚惚哈七七!");
+        xiaozhi_lvgl_center_text_update("李崇昊,你来了!");
     }
     else
     {

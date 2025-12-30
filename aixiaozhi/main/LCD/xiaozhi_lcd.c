@@ -32,8 +32,8 @@ const char *TAG = "ImageDec";
 #define EXAMPLE_LCD_CMD_BITS 8
 #define EXAMPLE_LCD_PARAM_BITS 8
 
-extern const uint8_t image_jpg_start[] asm("_binary_image_jpg_start");
-extern const uint8_t image_jpg_end[] asm("_binary_image_jpg_end");
+// extern const uint8_t image_jpg_start[] asm("_binary_image_jpg_start");
+// extern const uint8_t image_jpg_end[] asm("_binary_image_jpg_end");
 
 // Simple routine to generate some patterns and send them to the LCD. Because the
 // SPI driver handles transactions in the background, we can calculate the next line
@@ -118,7 +118,7 @@ void xiaozhi_lcd_init(void)
     ESP_ERROR_CHECK(esp_lcd_panel_mirror(panel_handle, true, false)); // TODO 沿x或者y轴镜像
 }
 
-void xiaozhi_lcd_show_image(uint8_t *pixels)
+/* void xiaozhi_lcd_show_image(uint8_t *pixels)
 {
     int sending_line = 0;
     int calc_line = 0;
@@ -137,9 +137,9 @@ void xiaozhi_lcd_show_image(uint8_t *pixels)
         // Send the calculated data
         esp_lcd_panel_draw_bitmap(panel_handle, 0, y, 0 + EXAMPLE_LCD_H_RES, y + PARALLEL_LINES, s_lines[sending_line]);
     }
-}
+} */
 
-void xiaozhi_lcd_test(void)
+/* void xiaozhi_lcd_test(void)
 {
 
     // Alocate pixel memory. Each line is an array of IMAGE_W 16-bit pixels; the `*pixels` array itself contains pointers to these lines.
@@ -164,11 +164,4 @@ void xiaozhi_lcd_test(void)
 
     xiaozhi_lcd_show_image(pixels);
     ESP_LOGI(TAG, "JPEG image decoded! Size of the decoded image is: %dpx x %dpx", outimg.width, outimg.height);
-
-    // err:
-    //     // Something went wrong! Exit cleanly, de-allocating everything we allocated.
-    //     if (*pixels != NULL)
-    //     {
-    //         free(*pixels);
-    //     }
-}
+} */

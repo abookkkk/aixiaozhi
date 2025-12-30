@@ -1,6 +1,6 @@
 #include "adc_button.h"
 
-//!gpio8
+//! gpio8
 button_handle_t sw2_adc_btn = NULL;
 button_handle_t sw3_adc_btn = NULL;
 
@@ -27,6 +27,7 @@ void adc_button_init(void)
         .max = 1800, // 500mv
     };
 
+    iot_button_new_adc_device(&sw2_btn_cfg, &sw2_btn_adc_cfg, &sw2_adc_btn);
     if (NULL == sw2_adc_btn)
     {
         ESP_LOGE(TAG, "Button2 create failed"); // ERROR
@@ -34,9 +35,10 @@ void adc_button_init(void)
         // ESP_LOGI(TAG, "Button create failed"); // info
         // ESP_LOGD(TAG, "Button create failed"); // debug
     }
-    //
-    iot_button_new_adc_device(&sw2_btn_cfg, &sw2_btn_adc_cfg, &sw2_adc_btn);
 
+    //
+    iot_button_new_adc_device(&sw3_btn_cfg, &sw3_btn_adc_cfg, &sw3_adc_btn);
+    //
     if (NULL == sw3_adc_btn)
     {
         ESP_LOGE(TAG, "Button3 create failed"); // ERROR
@@ -44,8 +46,6 @@ void adc_button_init(void)
         // ESP_LOGI(TAG, "Button3 create failed"); // info
         // ESP_LOGD(TAG, "Button3 create failed"); // debug
     }
-    //
-    iot_button_new_adc_device(&sw3_btn_cfg, &sw3_btn_adc_cfg, &sw3_adc_btn);
 }
 /**
  * @brief 重写的注册按键2的回调函数

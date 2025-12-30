@@ -5,7 +5,7 @@
 #include "esp_log.h"
 #include "xiaozhi_wifi.h"
 #include "stdint.h"
-
+#include "common/common_types.h"
 #include "font_puhui.h"
 #include "font_emoji.h"
 extern const lv_font_t font_puhui_14_1;

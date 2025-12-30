@@ -337,7 +337,7 @@ static void wifi_prov_print_qr(const char *name, const char *username, const cha
     xiaozhi_lvgl_qrcode_show(payload);
     esp_qrcode_config_t cfg = ESP_QRCODE_CONFIG_DEFAULT();
     // TODO 先不让他打印到控制台
-    //esp_qrcode_generate(&cfg, payload);
+    esp_qrcode_generate(&cfg, payload);
     ESP_LOGI(TAG, "If QR code is not visible, copy paste the below URL in a browser.\n%s?data=%s", QRCODE_BASE_URL, payload);
 }
 

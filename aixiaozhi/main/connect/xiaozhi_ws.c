@@ -139,7 +139,7 @@ void ws_send_hello(void)
 /*发送唤醒消息*/
 void xiaozhi_ws_send_wake_word(void)
 {
-    char *wake_str = "{\"type\":\"listen\",\"state\":\"detect\",\"text\":\"你好, 小鑫\"}";
+    char *wake_str = "{\"type\":\"listen\",\"state\":\"detect\",\"text\":\"你好, 宝儿\"}";
     xiaozhi_ws_SendText(wake_str);
 }
 /*发送开始监听消息*/

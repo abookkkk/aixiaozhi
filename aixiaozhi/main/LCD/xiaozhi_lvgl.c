@@ -91,6 +91,7 @@ void xiaozhi_lvgl_init(void)
     /*设置屏幕的文字颜色*/
     lv_obj_set_style_text_color(screenObj, lv_color_hex(0x000000), LV_PART_MAIN);
     lvgl_port_unlock();
+
     xiaozhi_lvgl_text_init();
 }
 
@@ -164,7 +165,7 @@ void xiaozhi_lvgl_text_init()
     /*将title_obj设置为flex布局*/
     lv_obj_set_layout(title_obj, LV_LAYOUT_FLEX);
     /*去掉title的滚动条*/
-    lv_obj_set_scrollbar_mode(title_obj,LV_SCROLLBAR_MODE_OFF);
+    lv_obj_set_scrollbar_mode(title_obj, LV_SCROLLBAR_MODE_OFF);
     /*设置水平布局*/
     lv_obj_set_flex_flow(title_obj, LV_FLEX_FLOW_ROW);
     /*内部文字居中*/
@@ -172,7 +173,7 @@ void xiaozhi_lvgl_text_init()
     /*声明使用字体*/
     lv_obj_set_style_text_font(title_label, &font_puhui_20_4, LV_PART_MAIN);
 
-    //lv_label_set_long_mode(title_label, LV_LABEL_LONG_SCROLL_CIRCULAR); // 循环滚动模式
+    lv_label_set_long_mode(title_label, LV_LABEL_LONG_SCROLL_CIRCULAR); // 循环滚动模式
 
     //! emoji 表情
     emoji_label = lv_label_create(screenObj);
@@ -196,9 +197,13 @@ void xiaozhi_lvgl_text_init()
     lv_obj_align_to(center_text, emoji_label, LV_ALIGN_OUT_BOTTOM_MID, 0, 20);
     /*声明使用字体*/
     lv_obj_set_style_text_font(center_text, &font_puhui_20_4, LV_PART_MAIN);
-    lv_label_set_text(center_text, "你好，我是小智!");
+    // lv_label_set_text(center_text, "你好，我是宝儿!");
+    char *text = malloc(strlen("你好，我是!") + strlen(AI_NAME) + 1);
+    sprintf(text, "你好，我是%s!", AI_NAME);
+    lv_label_set_text(center_text, text);
+    free(text); // 记得释放内存
     /*设置长文本滚动*/
-    lv_label_set_long_mode(center_text, LV_LABEL_LONG_SCROLL_CIRCULAR); // 循环滚动模式
+    //! lv_label_set_long_mode(center_text, LV_LABEL_LONG_SCROLL_CIRCULAR); // 循环滚动模式
     lvgl_port_unlock();
 }
 
