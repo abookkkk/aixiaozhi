@@ -10,7 +10,7 @@ static int s_retry_num = 0;
 // #define EXAMPLE_ESP_WIFI_SSID "Mate 70 Pro"
 // #define EXAMPLE_ESP_WIFI_PASS "12345678"
 #define PROV_QR_VERSION "v1"
-#define PROV_TRANSPORT_BLE "ble"
+#define PROV_TRANSPORT_SOFTAP "softap"
 #define QRCODE_BASE_URL "https://espressif.github.io/esp-jumpstart/qrcode.html"
 
 // const int WIFI_CONNECTED_EVENT = BIT0;
@@ -22,6 +22,8 @@ void xiaozhi_wifi_nvs_init(void);
 static void event_handler(void *arg, esp_event_base_t event_base,
                           int32_t event_id, void *event_data);
 static void get_device_service_name(char *service_name, size_t max);
+static esp_err_t custom_prov_data_handler(uint32_t session_id, const uint8_t *inbuf, ssize_t inlen,
+                                          uint8_t **outbuf, ssize_t *outlen, void *priv_data);
 
 static void wifi_prov_print_qr(const char *name, const char *username, const char *pop, const char *transport);
 void wifi_init_sta(void)
@@ -69,6 +71,7 @@ void wifi_app_main(void)
     ESP_ERROR_CHECK(esp_event_loop_create_default());
     // 创建默认的Wi-Fi接口
     esp_netif_create_default_wifi_sta();
+    esp_netif_create_default_wifi_ap(); // 添加AP接口
     // 创建Wi-Fi初始化配置
     wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
     ESP_ERROR_CHECK(esp_wifi_init(&cfg));
@@ -77,14 +80,15 @@ void wifi_app_main(void)
     esp_event_handler_instance_t instance_got_ip;
     // 注册事件处理函数
     ESP_ERROR_CHECK(esp_event_handler_register(WIFI_PROV_EVENT, ESP_EVENT_ANY_ID, &event_handler, NULL));
-    ESP_ERROR_CHECK(esp_event_handler_register(PROTOCOMM_TRANSPORT_BLE_EVENT, ESP_EVENT_ANY_ID, &event_handler, NULL));
+    // SoftAP模式不需要注册传输层事件
+    // ESP_ERROR_CHECK(esp_event_handler_register(PROTOCOMM_TRANSPORT_SOFTAP_EVENT, ESP_EVENT_ANY_ID, &event_handler, NULL));
     ESP_ERROR_CHECK(esp_event_handler_register(PROTOCOMM_SECURITY_SESSION_EVENT, ESP_EVENT_ANY_ID, &event_handler, NULL));
     // 注册WIFI事件处理函数
     ESP_ERROR_CHECK(esp_event_handler_instance_register(WIFI_EVENT, ESP_EVENT_ANY_ID, &event_handler, NULL, &instance_any_id));
     ESP_ERROR_CHECK(esp_event_handler_instance_register(IP_EVENT, IP_EVENT_STA_GOT_IP, &event_handler, NULL, &instance_got_ip));
     wifi_prov_mgr_config_t config = {
-        .scheme = wifi_prov_scheme_ble,                                        // 选择蓝牙模式配网
-        .scheme_event_handler = WIFI_PROV_SCHEME_BLE_EVENT_HANDLER_FREE_BTDM}; // 配网结束自动释放蓝牙相关的所有信息
+        .scheme = wifi_prov_scheme_softap,                                        // 选择热点模式配网
+        .scheme_event_handler = WIFI_PROV_EVENT_HANDLER_NONE}; // 热点模式不需要释放蓝牙
     ESP_ERROR_CHECK(wifi_prov_mgr_init(config));
 
     // 检查设备是否已配置
@@ -137,11 +141,20 @@ void wifi_app_main(void)
             0x1a,
             0x02,
         };
-        wifi_prov_scheme_ble_set_service_uuid(custom_service_uuid);
+        // SoftAP模式不需要设置UUID
+        // wifi_prov_scheme_ble_set_service_uuid(custom_service_uuid);
+
+        /* 创建自定义endpoint - 必须在start_provisioning之前 */
+        wifi_prov_mgr_endpoint_create("custom-data");
+
         /* 开始提供服务 */
         ESP_ERROR_CHECK(wifi_prov_mgr_start_provisioning(security, (const void *)sec_params, service_name, service_key));
+
+        /* 注册endpoint处理函数 - 必须在start_provisioning之后 */
+        wifi_prov_mgr_endpoint_register("custom-data", custom_prov_data_handler, NULL);
+
         /* 打印二维码 */ // TODO 调用生成二维码的函数
-        wifi_prov_print_qr(service_name, username, pop, PROV_TRANSPORT_BLE);
+        wifi_prov_print_qr(service_name, username, pop, PROV_TRANSPORT_SOFTAP);
     }
     else
     {
@@ -266,20 +279,8 @@ static void event_handler(void *arg, esp_event_base_t event_base,
         xEventGroupSetBits(s_wifi_event_group, WIFI_CONNECTED_BIT);
     }
 
-    else if (event_base == PROTOCOMM_TRANSPORT_BLE_EVENT)
-    {
-        switch (event_id)
-        {
-        case PROTOCOMM_TRANSPORT_BLE_CONNECTED:
-            ESP_LOGI(TAG, "BLE transport: Connected!");
-            break;
-        case PROTOCOMM_TRANSPORT_BLE_DISCONNECTED:
-            ESP_LOGI(TAG, "BLE transport: Disconnected!");
-            break;
-        default:
-            break;
-        }
-    }
+    // SoftAP模式不需要单独的传输层事件处理
+    // BLE模式才有PROTOCOMM_TRANSPORT_BLE_EVENT事件
 
     else if (event_base == PROTOCOMM_SECURITY_SESSION_EVENT)
     {
@@ -309,6 +310,24 @@ static void get_device_service_name(char *service_name, size_t max)
              ssid_prefix, eth_mac[3], eth_mac[4], eth_mac[5]);
 }
 
+/* 自定义配网数据处理函数 */
+static esp_err_t custom_prov_data_handler(uint32_t session_id, const uint8_t *inbuf, ssize_t inlen,
+                                          uint8_t **outbuf, ssize_t *outlen, void *priv_data)
+{
+    if (inbuf) {
+        ESP_LOGI(TAG, "Received data: %.*s", inlen, (char *)inbuf);
+    }
+    char response[] = "SUCCESS";
+    *outbuf = (uint8_t *)strdup(response);
+    if (*outbuf == NULL) {
+        ESP_LOGE(TAG, "System out of memory");
+        return ESP_ERR_NO_MEM;
+    }
+    *outlen = strlen(response) + 1; /* +1 for NULL terminating byte */
+
+    return ESP_OK;
+}
+
 static void wifi_prov_print_qr(const char *name, const char *username, const char *pop, const char *transport)
 {
     char payload[150] = {0}; // 存放二维码数据
@@ -334,10 +353,19 @@ static void wifi_prov_print_qr(const char *name, const char *username, const cha
     ESP_LOGI(TAG, "Scan this QR code from the provisioning application for Provisioning.");
 
     xiaozhi_lvgl_title_label_update("请使用小智App扫码配网");
-    xiaozhi_lvgl_qrcode_show(payload);
+    // 不显示二维码，直接显示WiFi热点信息
+    char wifi_info[100];
+    snprintf(wifi_info, sizeof(wifi_info), "WiFi热点: %s\n密码: %s", name, pop ? pop : "无密码");
+    xiaozhi_lvgl_center_text_update(wifi_info);
+    // xiaozhi_lvgl_qrcode_show(payload);  // 注释掉二维码显示
+
     esp_qrcode_config_t cfg = ESP_QRCODE_CONFIG_DEFAULT();
-    // TODO 先不让他打印到控制台
+    // 打印到控制台方便调试
     esp_qrcode_generate(&cfg, payload);
+    ESP_LOGI(TAG, "WiFi热点名称: %s", name);
+    if (pop) {
+        ESP_LOGI(TAG, "密码(PoP): %s", pop);
+    }
     ESP_LOGI(TAG, "If QR code is not visible, copy paste the below URL in a browser.\n%s?data=%s", QRCODE_BASE_URL, payload);
 }
 

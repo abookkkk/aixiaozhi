@@ -1,0 +1,50 @@
+# ESP-IDF 构建输出
+build/
+sdkconfig
+sdkconfig.old
+*.bin
+*.elf
+*.map
+
+# 依赖管理
+managed_components/
+dependencies.lock
+
+# Python
+*.pyc
+__pycache__/
+venv/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 操作系统
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 日志文件
+*.log
+
+# 临时文件
+*.tmp
+*.bak
+*.backup
+
+# 编译缓存
+.ccache/
+*.o
+*.a
+
+# Flash 下载工具配置
+flasher_args.json
+flash_project_args
+
+# 个人配置（可选）
+# 如果你的 sdkconfig 包含敏感信息，可以忽略它
+# 但通常建议提交 sdkconfig 以保持团队配置一致

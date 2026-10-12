@@ -14,7 +14,7 @@
 #include "nvs_flash.h"
 
 #include "wifi_provisioning/manager.h"
-#include "wifi_provisioning/scheme_ble.h"
+#include "wifi_provisioning/scheme_softap.h"
 
 #include "qrcode.h"
 
