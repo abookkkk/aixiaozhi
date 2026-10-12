@@ -35,7 +35,10 @@ void xiaozhi_audio_decode_task(void *arg)
     while (1)
     {
 
-        void *recv_pointer = xRingbufferReceive(xiaozhi_handle.ws2decoder_ringbuf_handle, &in_raw.len, portMAX_DELAY); // 这里当时没写&in_raw.len
+        //!消费第三个环形缓冲区的数据
+        size_t item_size = 0;
+        void *recv_pointer = xRingbufferReceive(xiaozhi_handle.ws2decoder_ringbuf_handle, &item_size, portMAX_DELAY);
+        in_raw.len = (uint32_t)item_size;
         in_raw.buffer = recv_pointer;
         esp_audio_dec_info_t dec_info = {0};
 
@@ -53,3 +56,4 @@ void xiaozhi_audio_decode_task(void *arg)
         vRingbufferReturnItem(xiaozhi_handle.ws2decoder_ringbuf_handle, recv_pointer);
     }
 }
+

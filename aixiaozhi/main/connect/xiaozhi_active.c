@@ -40,12 +40,25 @@ void xiaozhi_active_request(void)
     xiaozhi_active_setHeader();
     // 设置请求体
     xiaozhi_active_setBody();
-    // 发请求
-    while (esp_http_client_perform(client) != ESP_OK)
+    // 发请求，最多重试3次
+    int retry_count = 0;
+    esp_err_t err;
+    xiaozhi_lvgl_title_label_update("请求网络中...");
+    xiaozhi_lvgl_emoji_label_update("embarrassed");
+    xiaozhi_lvgl_center_text_update("请稍等...");
+
+    while ((err = esp_http_client_perform(client)) != ESP_OK && retry_count < 3)
     {
-        xiaozhi_lvgl_title_label_update("请求网络中...");
-        xiaozhi_lvgl_emoji_label_update("embarrassed");
-        xiaozhi_lvgl_center_text_update("请稍等...");
+        ESP_LOGE(TAG, "HTTP request failed: %s, retry %d/3", esp_err_to_name(err), retry_count + 1);
+        retry_count++;
+        vTaskDelay(pdMS_TO_TICKS(2000)); // 等待2秒后重试
+    }
+
+    if (err != ESP_OK) {
+        ESP_LOGE(TAG, "HTTP request failed after 3 retries");
+        xiaozhi_lvgl_title_label_update("网络请求失败");
+        xiaozhi_lvgl_emoji_label_update("sad");
+        xiaozhi_lvgl_center_text_update("请检查网络连接");
     }
 
     // esp_err_t err = esp_http_client_perform(client);
